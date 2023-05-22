@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Read Book</title>
+  <style>
+    body {
+      background-color: #141414;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+      overflow: hidden;
+      align-items: center; /* Center vertically */
+      justify-content: center; /* Center horizontally */
+    }
+
+    #book-container {
+      margin-bottom: 20px;
+    }
+
+    #book-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center buttons horizontally */
+      align-items: center; /* Center buttons vertically */
+    }
+
+    button {
+      background-color: #e50914;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      opacity: 1; /* Set initial opacity */
+      transition: opacity 0.5s; /* Add fade-out animation */
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .prev-next-button {
+      display: none; /* Hide the previous and next buttons */
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 90px); /* Adjust the padding value as needed */
+      object-fit: contain;
+      padding: 20px; /* Add padding to the canvas */
+    }
+  </style>
+</head>
+<body>
+  <div id="book-container"></div>
+  <div id="book-list"></div>
+
+  <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+  <script>
+    var pastebinUrl = "https://raw.githubusercontent.com/stodja/Booklink/main/books.txt"; // Specify your Pastebin link
+
+    // Fetch the Pastebin content
+    fetch(pastebinUrl)
+      .then(response => response.text())
+      .then(data => {
+        var bookUrls = data.trim().split("\n");
+        showBookList(bookUrls);
+      });
+
+      function showBookList(bookUrls) {
+        var bookListContainer = document.getElementById("book-list");
+        var buttons = []; // Array to store all the buttons
+
+        bookUrls.forEach(function(bookUrl) {
+            var bookTitle = getBookTitle(bookUrl);
+            var button = document.createElement("button");
+            button.innerText = bookTitle;
+            button.addEventListener("click", function() {
+            buttons.forEach(function(btn) {
+                btn.style.opacity = 0; // Apply fade-out animation to all buttons
+            });
+            setTimeout(function() {
+                displayBook(bookUrl);
+            }, 500); // Wait for the animation to complete
+            });
+            buttons.push(button); // Add button to the array
+            bookListContainer.appendChild(button);
+        });
+        }
+
+
+    function getBookTitle(bookUrl) {
+      // Extract the book title from the URL or customize it as needed
+      // Example: Assuming the URL is in the format "https://example.com/book-title.epub"
+      var bookTitle = bookUrl.split("/").pop().split(".")[0];
+
+      // Replace symbols "-" and "_" with spaces
+      bookTitle = bookTitle.replace(/[-_]/g, " ");
+
+      // Capitalize the starting letter of every word
+      bookTitle = bookTitle.replace(/\b\w/g, function(l) {
+        return l.toUpperCase();
+      });
+
+      return bookTitle;
+    }
+
+    function displayBook(bookUrl) {
+      var bookContainer = document.getElementById("book-container");
+      bookContainer.innerHTML = "";
+
+      if (bookUrl.endsWith(".pdf")) {
+        // Use PDF.js to render the PDF
+        var canvas = document.createElement("canvas");
+        bookContainer.appendChild(canvas);
+
+        var currentPage = 1; // Track the current page number
+        var pdfInstance = null;
+
+        var loadingTask = pdfjsLib.getDocument(bookUrl);
+        loadingTask.promise.then(function(pdf) {
+          pdfInstance = pdf;
+
+          renderPage(currentPage); // Render the initial page
+
+          // Attach keyboard event listeners
+          document.addEventListener("keydown", function(event) {
+            if (event.keyCode === 39 || event.keyCode === 228) {
+              // Right arrow or key code 228 (next page)
+              if (currentPage < pdf.numPages) {
+                currentPage++;
+                renderPage(currentPage);
+              }
+            } else if (event.keyCode === 37 || event.keyCode === 227) {
+              // Left arrow or key code 227 (previous page)
+              if (currentPage > 1) {
+                currentPage--;
+                renderPage(currentPage);
+              }
+            }
+          });
+
+        });
+
+        function renderPage(pageNumber) {
+            pdfInstance.getPage(pageNumber).then(function(page) {
+                var viewport = page.getViewport({ scale: 1 });
+                var canvas = document.querySelector("canvas");
+                var context = canvas.getContext("2d");
+                var viewportHeight = window.innerHeight;
+
+                var viewportOptions = viewport.clone({ scale: 1 });
+                var scale = viewportHeight / viewportOptions.height;
+                var scaledViewport = viewportOptions.clone({ scale: scale });
+
+                canvas.height = scaledViewport.height;
+                canvas.width = scaledViewport.width;
+
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport
+                };
+
+                // Apply smooth animation for page transition
+                canvas.style.transform = "translateX(-100%)"; // Set initial position to the left
+                canvas.style.opacity = 0; // Set initial opacity to 0
+
+                page.render(renderContext).promise.then(function() {
+                canvas.style.transition = "transform, opacity 0.75s"; // Add transition property
+                canvas.style.transform = "translateX(0)"; // Slide the canvas to the center
+                canvas.style.opacity = 1; // Fade in the new page
+                });
+            });
+        }
+      }
+    }
+  </script>
+</body>
+</html>
