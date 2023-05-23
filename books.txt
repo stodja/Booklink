@@ -1,2 +1,0 @@
-http://127.0.0.1:3000/it_ends_with_us.pdf
-http://127.0.0.1:3000/pdf-test.pdf
