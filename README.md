@@ -1,7 +1,7 @@
-# Booklink
-## What is Booklink?
+# Booklink :book:
+## What is Booklink :question:
 Booklink is a web application that provides a platform for users to access and manage digital books. It aims to offer a seamless and user-friendly experience for reading and organizing digital book collections.
-## Features
+## :sparkles: Features
 * Booklist Display: Booklink allows users to view a list of available books. These books are fetched from a remote source specified in a text file, making it easy to update and maintain the book collection.
 
 * Book Selection: Users can select a book from the list by clicking on a corresponding button. This action triggers a smooth animation and displays the selected book's content.
@@ -12,18 +12,18 @@ Booklink is a web application that provides a platform for users to access and m
 
 * Responsive Design: The application is designed to adapt to different screen sizes and devices. It provides a responsive layout that ensures optimal viewing and interaction across desktop and mobile platforms.
 
-## Languages used
+## :alien: Languages used 
 - HTML
 - CSS
 - JavaScript
 
-## Installation
+## :wrench: Installation
 
 1. Clone the repository: `git clone https://github.com/stodja/Booklink.git`
 2. Modify books.booklink
 3. Deploy the index.html file.
 
-## Contributing
+## :people_hugging: Contributing
 
 Contributions are welcome! Here's how you can contribute to this project:
 
