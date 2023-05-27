@@ -20,8 +20,8 @@ Booklink is a web application that provides a platform for users to access and m
 ## :wrench: Installation
 
 1. Clone the repository: `git clone https://github.com/stodja/Booklink.git`
-2. Modify books.booklink
-3. Deploy the index.html file.
+2. Deploy the index.html file.
+3. Enjoy!
 
 ## :people_hugging: Contributing
 
