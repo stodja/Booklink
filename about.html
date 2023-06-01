@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Page... Not Found?</title>
+  <title>About</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -17,6 +17,7 @@
     }
 
     body {
+      text-align: center;
       background-color: #141414;
       color: #ffffff;
       font-family: "Poppins", Arial, sans-serif;
@@ -39,6 +40,8 @@
     }
 
     p {
+      justify-content: center;
+      align-items: center;
       text-align: center;
       font-size: 24px;
       margin-top: 20px;
@@ -52,8 +55,6 @@
         border-radius: 6px;
         text-decoration: none;
         background-color: red;
-        color: white;
-        padding: 7px 17px;
     }
 
     a:hover {
@@ -63,8 +64,18 @@
   </style>
 </head>
 <body>
-  <h1>404</h1>
-  <p>Uhh... that was unexpected, let me take you back.</p>
-  <p><a href="javascript:history.back()">Take the first left and go back</a></p>
+  <h1 id="about-header">About</h1>
+  <p><a href = "https://github.com/stodja/Booklink/" style="color:white"> This</a> is a <a href = "https://en.wikipedia.org/wiki/Self-hosting_(web_services)" style= color:white>self-hosted</a> application to manage and display ebooks <br><br>
+     If you would like to use it <a href = "https://github.com/stodja/Booklink/fork" style="color:white"> fork the repo</a><br><br></p>
+     <p1>We do not provide ebooks, those are fetched from a self-supplied list of URLs. Booklink is (c) 2023 stodja, all rights reserved.
+      It includes PDF.js (c) 2023 Mozilla Foundation, used under the terms of the Apache2.0 licence. <a href = "https://mozilla.github.io/pdf.js/build/pdf.js" style="color: white;"> Click here</a> for full details of the copyright holders and the text of the licence.
+     </p1>
+
+  <script>
+    var aboutHeader = document.getElementById("about-header");
+    aboutHeader.addEventListener("click", function() {
+        window.location.href = "BookLink.html";
+    });
+  </script>
 </body>
 </html>
