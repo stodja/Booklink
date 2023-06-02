@@ -155,6 +155,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
+      transition: opacity 0.5s;
     }
 
   </style>
@@ -205,6 +206,7 @@
             btn.style.opacity = 0; // Apply fade-out animation to all buttons
             submitButton.style.opacity = 0;
             document.getElementById("booklist-url-input").style.opacity = 0;
+            document.getElementById("about").style.opacity = 0;
           });
           setTimeout(function() {
             displayBook(bookUrl);
