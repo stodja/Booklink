@@ -23,6 +23,10 @@ Booklink is a web application that provides a platform for users to access and m
 2. Deploy the index.html file.
 3. Enjoy!
 
+## :ladder: Usage
+
+![](usage.mp4)
+
 ## :people_hugging: Contributing
 
 Contributions are welcome! Here's how you can contribute to this project:
