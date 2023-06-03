@@ -25,7 +25,8 @@ Booklink is a web application that provides a platform for users to access and m
 
 ## :ladder: Usage
 
-![](usage.mp4)
+<video src='https://github.com/stodja/Booklink/assets/76913532/30bee349-3012-44e7-a814-b3daec957745'>
+</video>
 
 ## :people_hugging: Contributing
 
