@@ -109,13 +109,18 @@
     }
 
     canvas {
-      display: block;
-      width: 100%;
-      height: calc(100vh - 90px); /* Adjust the padding value as needed */
+      display: flex;
+      padding: 5%;
       object-fit: contain;
       padding: 20px; /* Add padding to the canvas */
       opacity: 0; /* Set initial opacity to 0 */
       transition: opacity 0.5s; /* Add fade-in animation */
+      width: auto;
+      position: relative;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: opacity 0.5s;
     }
 
     h1 {
@@ -284,7 +289,7 @@
           var pageSelector = document.createElement("input");
           
           pageSelector.id = "page-selector";
-          pageSelector.type = "number";
+          pageSelector.type = "text";
           pageSelector.min = 1;
           pageSelector.max = pdf.numPages;
           pageSelector.value = currentPage;
@@ -341,7 +346,10 @@
           }
           buttons.forEach(function(btn) {
             btn.style.opacity = 1; // Make the buttons visible
+            document.getElementById("submit-button").style.opacity = 1;
+            document.getElementById("booklist-url-input").style.opacity = 1;
           });
+
           // Remove the page number container
           pageNumberContainer.parentNode.removeChild(pageNumberContainer);
         });
