@@ -33,3 +33,8 @@ Contributions are welcome! Here's how you can contribute to this project:
 * Commit your changes: `git commit -m 'Add some feature'`
 * Push the branch: `git push origin feature/your-feature`
 * Submit a pull request
+
+## :coin: Commercial
+
+ Booklink is available under both the GPL and the Apache licence.
+ As a result, developers who use or distribute open source applications under the GPL can use the GPL-licensed Booklink, and those that do not want to combine or distribute Booklink with their own commercial software under a GPL licence can purchase the Apache licence.
