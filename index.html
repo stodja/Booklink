@@ -314,10 +314,10 @@
             var viewport = page.getViewport({ scale: 1 });
             var canvas = document.querySelector("canvas");
             var context = canvas.getContext("2d");
-            var viewportHeight = window.innerHeight;
+            var viewportWidth = window.innerWidth - window.innerWidth / 30;
 
             var viewportOptions = viewport.clone({ scale: 1 });
-            var scale = viewportHeight / viewportOptions.height;
+            var scale = viewportWidth / viewportOptions.width;
             var scaledViewport = viewportOptions.clone({ scale: scale });
 
             canvas.height = scaledViewport.height;
