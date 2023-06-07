@@ -266,14 +266,14 @@
           document.addEventListener("keydown", function(event) {
             if (document.activeElement && (document.activeElement.tagName.toLowerCase() != 'input' )){
                
-              if (event.keyCode === 39 || event.keyCode === 228) {
+              if (event.keyCode === 39 || event.keyCode === 117 || event.keyCode === 228) {
                 // Right arrow or key code 228 (next page)
                 if (currentPage < pdf.numPages) {
                   currentPage++;
                   renderPage(currentPage);
                   pageSelector.value = currentPage
                 }
-              } else if (event.keyCode === 37 || event.keyCode === 227) {
+              } else if (event.keyCode === 37 || event.keyCode === 116 || event.keyCode === 227) {
                 // Left arrow or key code 227 (previous page)
                 if (currentPage > 1) {
                   currentPage--;
