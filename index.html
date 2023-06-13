@@ -265,8 +265,18 @@
         loadingTask.promise.then(function(pdf) {
           pdfInstance = pdf;
 
-          renderPage(currentPage); // Render the initial page
-
+          if (document.cookie.match(new RegExp('(^| )' + String(getBookTitle(bookUrl) + '=([^;]+)')))) {
+            var match = (document.cookie.match(new RegExp('(^| )' + String(getBookTitle(bookUrl) + '=([^;]+)'))));
+            if (match) {
+              currentPage = match[2];
+              pageNumber = match[2];
+              renderPage(parseInt(match[2]));
+            }
+          }
+          else {
+            renderPage(currentPage); // Render the initial page
+          }
+          
           // Attach keyboard event listeners
           document.addEventListener("keydown", function(event) {
             if (document.activeElement && (document.activeElement.tagName.toLowerCase() != 'input' )){
@@ -315,6 +325,7 @@
         });
 
         function renderPage(pageNumber) {
+          document.cookie = String(getBookTitle(bookUrl) + '=' + pageNumber + ';expires=' + new Date(2147483647 * 1000).toUTCString() + '; Samesite=Lax');
           pdfInstance.getPage(pageNumber).then(function(page) {
             var viewport = page.getViewport({ scale: 1 });
             var canvas = document.querySelector("canvas");
