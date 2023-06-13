@@ -238,6 +238,9 @@
         return l.toUpperCase();
       });
 
+      // Replace "%20" with spaces
+      bookTitle = bookTitle.replace(/%20/g, " ")
+
       return bookTitle;
     }
 
