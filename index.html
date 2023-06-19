@@ -184,6 +184,10 @@
 
   <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
   <script>
+    console.log('%c Hold Up! ', 'font-family: "Sans"; font-weight: bold; font-size: 100px; color: red');
+    console.warn("%c Do not copy/paste anything in here, you are probably being scammed!", "font-size: 20px")
+    console.warn("%c Unless you understand exactly what you are doing, close this window and stay safe.", "font-size: 20px")
+    console.warn("%c (If you're a developer, then you're on your own idk)", "font-size: 10px")
     var buttons = []; // Array to store all the buttons
 
     // Add click event listener to the submit button
@@ -206,23 +210,25 @@
       bookListContainer.innerHTML = ""; // Clear previous book list
 
       bookUrls.forEach(function(bookUrl) {
-        var bookTitle = getBookTitle(bookUrl);
-        var button = document.createElement("button");
-        button.innerText = bookTitle;
-        button.addEventListener("click", function() {
-          buttons.forEach(function(btn) {
-            btn.style.opacity = 0; // Apply fade-out animation to all buttons
-            submitButton.style.opacity = 0;
-            document.getElementById("booklist-url-input").style.opacity = 0;
-            document.getElementById("about").style.opacity = 0;
+        if (/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
+.test(bookUrl) == true) {
+          var bookTitle = getBookTitle(bookUrl);
+          var button = document.createElement("button");
+          button.innerText = bookTitle;
+          button.addEventListener("click", function() {
+            buttons.forEach(function(btn) {
+              btn.style.opacity = 0; // Apply fade-out animation to all buttons
+              submitButton.style.opacity = 0;
+              document.getElementById("booklist-url-input").style.opacity = 0;
+              document.getElementById("about").style.opacity = 0;
+            });
+            setTimeout(function() {
+              displayBook(bookUrl);
+            }, 500); // Wait for the animation to complete
           });
-          setTimeout(function() {
-            displayBook(bookUrl);
-          }, 500); // Wait for the animation to complete
-        });
-        buttons.push(button); // Add button to the array
-        bookListContainer.appendChild(button);
-        
+          buttons.push(button); // Add button to the array
+          bookListContainer.appendChild(button);
+        }
       });
     }
 
@@ -362,6 +368,7 @@
             btn.style.opacity = 1; // Make the buttons visible
             document.getElementById("submit-button").style.opacity = 1;
             document.getElementById("booklist-url-input").style.opacity = 1;
+            document.getElementById("about").style.opacity = 1;
           });
 
           // Remove the page number container
