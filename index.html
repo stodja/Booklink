@@ -231,16 +231,13 @@
       // Example: Assuming the URL is in the format "https://example.com/book-title.epub"
       var bookTitle = bookUrl.split("/").pop().split(".")[0];
 
-      // Replace symbols "-" and "_" with spaces
-      bookTitle = bookTitle.replace(/[-_]/g, " ");
+      // Decode the URI components
+      bookTitle = decodeURIComponent(bookTitle)
 
       // Capitalize the starting letter of every word
       bookTitle = bookTitle.replace(/\b\w/g, function(l) {
         return l.toUpperCase();
       });
-
-      // Replace "%20" with spaces
-      bookTitle = bookTitle.replace(/%20/g, " ")
 
       return bookTitle;
     }
