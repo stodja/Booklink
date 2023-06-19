@@ -1,6 +1,6 @@
 # Booklink 📚
 
-## What is Booklink? ❓
+## What is Booklink ❓
 
 Booklink is a groundbreaking web application that provides users with a seamless and delightful platform for accessing and managing their digital book collections. It aims to deliver an immersive and user-friendly experience, allowing users to effortlessly explore, read, and organize their favorite digital books all in one place.
 
@@ -27,6 +27,19 @@ Booklink is a groundbreaking web application that provides users with a seamless
 1. Clone the repository: `git clone https://github.com/stodja/Booklink.git`
 2. Deploy the `index.html` file.
 3. Enjoy the world of digital books with Booklink!
+
+## Books list 📚
+
+Here's an example books list file structure:
+
+```
+https://example.com/download/collection/A%20developer%20of%20The%20World.pdf
+https://example.com/download/collection/An%20introduction%20to%20booklink.pdf
+https://example.com/download/collection/This%20is%20a%20cool%20book.pdf
+```
+
+As you can see in the code above, the URLs in the file should point directly to the pdf.
+The file should be in plain text format, eg. "list.txt"
 
 ## Contributing 🤗
 
