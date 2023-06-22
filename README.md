@@ -1,5 +1,7 @@
 # Booklink 📚
 
+![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fstodja%2FBooklink.svg?type=small)  	![GitHub release (release name instead of tag name)](https://img.shields.io/github/v/release/stodja/Booklink?logo=github&logoColor=000000&labelColor=ffffff&color=stronggreen) ![Mantained (Yes)](https://img.shields.io/badge/Maintained%3F-yes-green.svg?logo=github&logoColor=000000&labelColor=ffffff&color=stronggreen) ![Website (Up)](https://img.shields.io/website-up-down-green-red/http/monip.org.svg?logo=lens&logoColor=000000&label=Website%20is&labelColor=ffffff&color=stronggreen) 
+---
 ## What is Booklink ❓
 
 Booklink is a groundbreaking web application that provides users with a seamless and delightful platform for accessing and managing their digital book collections. It aims to deliver an immersive and user-friendly experience, allowing users to effortlessly explore, read, and organize their favorite digital books all in one place.
