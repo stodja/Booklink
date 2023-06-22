@@ -166,6 +166,12 @@
       transition: opacity 0.5s;
     }
 
+    #css {
+      position: absolute;
+      bottom: 0.5%;
+      right: 1%;
+    }
+
   </style>
 </head>
 <body>
@@ -181,6 +187,11 @@
   <div id="book-list"></div>
 
   <div id="about"><a href="assets/pages/about.html" style="color:white">About</a></div>
+
+  <div id="css">
+  <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Validated by W3C">
+  </div>
+            
 
   <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
   <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -199,6 +210,16 @@
         allowHTML: true,
         maxWidth: 'none',
         interactive: true,
+      });
+
+    tippy('#css', {
+        content: '<a href="https://jigsaw.w3.org/css-validator/about.html" style="color:white; display:inline-block;">CSS Validated by W3C</a>',
+        allowHTML: true,
+        interactive: true,
+      });
+
+    tippy('#booklink-header', {
+        content: 'Return to the main page'
       });
 
     var submitButton = document.getElementById("submit-button");
