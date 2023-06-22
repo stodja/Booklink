@@ -1,5 +1,5 @@
 # Booklink 📚
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fstodja%2FBooklink.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fstodja%2FBooklink?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fstodja%2FBooklink.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fstodja%2FBooklink?ref=badge_small)
 
 
 ## What is Booklink? ❓
@@ -40,7 +40,3 @@ We warmly welcome contributions to make Booklink even better! Here's how you can
 4. Commit your changes: `git commit -m 'Add some feature'`.
 5. Push the branch: `git push origin feature/your-feature`.
 6. Submit a pull request to have your changes reviewed and merged into the main repository.
-
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fstodja%2FBooklink.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fstodja%2FBooklink?ref=badge_large)
