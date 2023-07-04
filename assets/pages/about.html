@@ -33,7 +33,7 @@
       font-family: "Poppins", Arial, sans-serif;
       font-size: 77px;
       font-weight: normal;
-      margin-top: 0;
+      margin-top: 20px;
       text-align: center;
       text-shadow: 0 0 0px #ffffff, 0 0 0px #ffffff, 0 0 04px #ffffff;
       cursor: pointer;
@@ -61,14 +61,22 @@
       opacity: 0.7;
     }
 
+    .legal {
+      position: absolute;
+      bottom: 1.5%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
   </style>
 </head>
 <body>
   <h1 id="about-header">About</h1>
-  <p><a href = "https://github.com/stodja/Booklink/" style="color:white"> This</a> is an application to manage and display ebooks <br><br>
+  <p>This is an application to manage and display ebooks <br><br>
      If you would like to use it read the <a href = "https://github.com/stodja/Booklink/blob/main/README.md" style="color:white"> README</a><br><br></p>
-     <p1>We do not provide ebooks, those are fetched from a self-supplied list of URLs. Booklink is (c) 2023 stodja, all rights reserved.
-      It includes PDF.js (c) 2023 Mozilla Foundation, used under the terms of the Apache2.0 licence. <a href = "https://mozilla.github.io/pdf.js" style="color: white;"> Click here</a> for full details of the copyright holders and the text of the licence.
+     <p1 class="legal"><bottom>And here we go with the legal stuff...<br>Booklink is (c) 2023 stodja, all rights reserved.
+      It includes <a href = "https://mozilla.github.io/pdf.js" style="color:white">PDF.js</a> (c) 2023 Mozilla Foundation, used under the terms of the Apache2.0 licence; <a href = "https://atomiks.github.io/tippyjs/" style="color:white">Tippy.js</a> (c) 2017-present atomiks, used under the terms of the MIT licence. Click on the respective link for full details of the copyright holders and the text of the licence.
+      We do not provide ebooks, those are fetched from a self-supplied list of URLs.
      </p1>
 
   <script>
