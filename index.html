@@ -132,6 +132,17 @@
       transition: opacity 0.5s;
     }
 
+    .header {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: baseline;
+      text-align: center;
+      margin-top:20px;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 15px;
+    }
+
     h1 {
       font-family: "Poppins", Arial, sans-serif;
       font-size: 77px;
@@ -182,7 +193,10 @@
   </style>
 </head>
 <body>
+  <div class="header">
+  <img id="logo" src="assets/images/logo.png" style="border:0;height:66px;">
   <h1 id="booklink-header">Booklink</h1> <!-- Add the "Booklink" text header -->
+  </div>
 
   <!-- Add input box and submit button -->
   <div id="url-input">
